@@ -47,5 +47,5 @@ function fibnocci(num){
 }
 
 console.log(fibnocci(10))
-console.log(fibnocci(4))
-console.log(fibnocci(5))
+// console.log(fibnocci(4))
+// console.log(fibnocci(5))
