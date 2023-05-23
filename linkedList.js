@@ -135,7 +135,6 @@
 
 class Node{
     constructor(value){
-        // console.log(value);
         this.value=value
         this.next=null
     }
@@ -164,6 +163,7 @@ class linkedList{
         }
         this.size++
     }
+
     print(){
         if(this.isEmpty()){
             console.log('list is empty')
@@ -171,7 +171,7 @@ class linkedList{
             let curr=this.head
             let listValues=''
             while (curr) {
-                // console.log(curr);
+                console.log(curr);
                 listValues+=`${curr.value} `
                 curr=curr.next
             }
