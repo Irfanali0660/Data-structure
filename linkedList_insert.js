@@ -43,13 +43,10 @@ class linkedList{
             for (let i = 0; i < index-1; i++) {
                 pre=pre.next                
             }
-            console.log(pre.next,'next');
             node.next=pre.next
             pre.next=node
-            console.log(pre.next,'next node');
             this.size++
         }
-
     }
 
     print(){
@@ -65,7 +62,7 @@ class linkedList{
             }
             console.log(listValues )
         }
-      }
+    }
 }
 
 const list=new linkedList()

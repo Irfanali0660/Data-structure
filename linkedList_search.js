@@ -72,6 +72,7 @@ class linkedList{
         }
     }
 
+
     removeValue(value){
         if(this.isEmpty()){
             return null
@@ -111,7 +112,6 @@ class linkedList{
             i++
         }
         return -1
-
     }
 
     revese(){
@@ -142,6 +142,21 @@ class linkedList{
         //   current = null;
         }
     }
+    
+    duplicate(){
+        let temp = this.head;
+        while (temp!=null) {
+           let current = temp
+           while (current.next !== null) {
+               if (temp.value === current.next.value) {
+                 current.next = current.next.next;
+               } else {
+                 current = current.next;
+               }
+             }
+             temp=temp.next
+        }
+    }
     print(){
         if(this.isEmpty()){
             console.log('list is empty')
@@ -149,7 +164,6 @@ class linkedList{
             let curr=this.head
             let listValues=''
             while (curr) {
-                // console.log(curr);
                 listValues+=`${curr.value} `
                 curr=curr.next
             }
@@ -161,22 +175,25 @@ class linkedList{
 
 const list=new linkedList()
 list.insert(10,0)
-// list.print()
+list.insert(10,0)
+list.insert(20,0)
+list.insert(10,0)
+list.insert(30,0)
+list.insert(40,0)
+
 
 
 list.insert(20,0)
-// list.print()
-
-list.insert(30,2)
-// list.insert(30,2)
-// list.print()
-
+list.insert(20,0)
+list.insert(20,0)
+list.prepend(30)
 list.insert(40,2)
-
+list.insert(40,2)
 
 list.print()
 list.removeLastNode()
-// console.log(list.search(220));
-
-// list.revese()
+list.search(220)
+list.revese()
+list.print()
+list.duplicate()
 list.print()

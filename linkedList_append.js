@@ -41,7 +41,7 @@ class linkedList{
             while (pre.next) {
                 pre=pre.next
             }
-            pre.next=node
+            pre.next=node   
         }
         this.size++
     }
@@ -59,7 +59,7 @@ class linkedList{
             }
             console.log(listValues )
         }
-      }
+    }
 }
 
 const list=new linkedList()

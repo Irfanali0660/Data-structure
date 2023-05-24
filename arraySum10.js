@@ -8,7 +8,7 @@
     }
         return new Array("no value")
     }   
-    console.log(result([6,5,3,3,9,0]));
+    console.log(result([6,5,4,3,9,0]));
 
     // O(n2) Time
     // o(1)  Space

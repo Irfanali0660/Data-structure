@@ -39,15 +39,11 @@ class linkedList{
             this.head=this.head.next
         }else{
             let pre=this.head
-            console.log(this.head);
             for (let i = 0; i < index-1; i++) {
                 pre=pre.next
             }
-            console.log(pre.next,'pre');
             removenode=pre.next
-
             pre.next=removenode.next
-            console.log(this.head,'head');
         }
         this.size--
         return removenode.value
