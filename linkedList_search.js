@@ -122,7 +122,7 @@ class linkedList{
             curr.next=pre
             pre=curr
             curr=next
-        }
+        }   
         this.head=pre
     }
     removeLastNode() {
@@ -139,7 +139,6 @@ class linkedList{
             }
             console.log(previous);
             previous.next = null;
-        //   current = null;
         }
     }
     
