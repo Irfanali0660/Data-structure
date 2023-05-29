@@ -74,12 +74,12 @@ list.insert(10,0)
 list.print()
 
 
-list.insert(20,0)
-list.print()
+// list.insert(20,0)
+// list.print()
 
-list.insert(30,2)
-list.print()
+// list.insert(30,1)
+// list.print()
 
-list.insert(40,2)
+list.insert(40,1)
 
 list.print()

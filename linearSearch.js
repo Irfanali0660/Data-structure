@@ -8,4 +8,4 @@ function linear(arr,val) {
 }
 
 
-console.log(linear([2,3,1,5,4,3,8],2));
+console.log(linear([2,3,1,5,4,3,8],5));
