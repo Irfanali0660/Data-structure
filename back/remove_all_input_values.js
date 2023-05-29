@@ -71,7 +71,7 @@ class Linkedlist{
     removelast(){
         if(this.size==0){
             return console.log('empty listt');
-         }else{
+         }else{ 
 
             let pre=this.head
             while (pre.next.next) {
