@@ -27,25 +27,23 @@ function smallest(array) {
 // console.log(smallest([2,4,5,6,3,4,45,4,]));
 
 // unique element
-
-function unique(array) {
-    let uniquearray=[]
-    for (let i = 0; i < array.length; i++) {
-      let isUnique = true;
-      for (let j = 0; j < array.length; j++) {
-        if (array[i] === array[j] && i !== j) {
-          isUnique = false;
-          break;
+function unique(array){
+  let arr=[]
+  for (let i = 0; i < array.length; i++) {
+      let isunique=true
+        for (let j = 0; j < array.length; j++) {
+          if(array[i]==array[j] && i!=j){
+              isunique=false
+              break
+          }
+        }  
+        if(isunique){
+          arr.push(array[i])
         }
-      }
-  
-      if (isUnique) {
-        uniquearray.push(array[i])
-      }
     }
-  
-    return uniquearray; // Return null if no unique element is found
-  }
-  
-  console.log(unique([1, 2, 2, 1, 3,4,5,5,6])); // Output: 3
-  
+    return arr
+}
+
+console.log(unique([1, 2, 2, 1, 3,4,5,5,6]));
+
+// 

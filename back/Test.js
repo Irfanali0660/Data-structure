@@ -294,7 +294,7 @@ class LinkedList{
         let array=[]
 
 
-        while (fast.next) {
+        while (fast && fast.next) {
             array.push(slow.value)
             fast=fast.next.next
             slow=slow.next

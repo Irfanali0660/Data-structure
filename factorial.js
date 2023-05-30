@@ -6,5 +6,4 @@ function factorial(num) {
     }
     return pro
 }
-
 console.log(factorial(10));

@@ -44,12 +44,8 @@ class LinkedList {
   linkedList.append(10);
   linkedList.append(20);
   linkedList.append(30);
-  
   linkedList.prepend(5);
-  
   linkedList.insertAt(15, 2);
-  
   linkedList.remove(20);
-  
   linkedList.display();
   
