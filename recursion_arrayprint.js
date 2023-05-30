@@ -7,7 +7,7 @@ function print(array,index) {
         return null
     }else{
         console.log(array[index])
-    }
+    }   
     print(array,index+1)
 }
 
