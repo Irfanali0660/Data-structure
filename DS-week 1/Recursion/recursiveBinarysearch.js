@@ -17,5 +17,4 @@ function search(array,target,leftindex,rightindex){
     }
 }
 
-console.log(recursivebinary([1,2,3,4,5,6,7,8,9],14));
-
+console.log(recursivebinary([1,2,3,4,5,6,7,8,9],2));    

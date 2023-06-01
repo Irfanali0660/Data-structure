@@ -30,5 +30,5 @@ let  values=''
 while (curr) {
     values+=`${curr.value} `
     curr=curr.next
-}
+}   
 console.log(values);

@@ -12,7 +12,6 @@
 
 // function large(array) {
 //     let middle=Math.floor((array.length-1)/2)
-//     console.log(middle);
 //     for(i=middle;i<array.length-1;i++){
 //             array[i]=array[i+1]
 //             middle++;
@@ -116,12 +115,12 @@ class LinkedList{
     
 }
 
-const list=new LinkedList()
+// const list=new LinkedList()
 
-list.prepend(10)
-list.prepend(20)
-list.prepend(30)
-list.append(40)
+// list.prepend(10)
+// list.prepend(20)
+// list.prepend(30)
+// list.append(40)
 
-list.print()
-list.header()
+// list.print()
+// list.header()

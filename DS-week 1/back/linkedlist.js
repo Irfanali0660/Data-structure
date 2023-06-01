@@ -86,7 +86,6 @@ class Linkedlist{
         if(this.size==0){
             return console.log('empty listt');
          }else{
-            console.log(this.size,Math.floor(this.size/2));
             let pre=this.head
          for (let i = 0; i <=Math.floor(this.size/2)-2; i++) {
             pre=pre.next            
