@@ -55,7 +55,6 @@ class linkedListqueue{
         console.log(queueValues);
     }
 }
-
 const queue=new linkedListqueue()
 
 queue.enqueue(10)
