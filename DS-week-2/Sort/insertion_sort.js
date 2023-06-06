@@ -10,4 +10,4 @@ function insertion(array) {
     }
     return array
 }
-console.log(insertion([-2,3,5,6,-8,6,7]));
+console.log(insertion([-2,3,5,6,6,7,-8]));

@@ -11,10 +11,10 @@ function mergesort(array) {
 
 function merge(leftarr,rightarr) {
     const sortarr=[]
-    while (leftarr.length && rightarr.length) {
+    while (leftarr.length && rightarr.length){
         if(leftarr[0]<=rightarr[0]){
             sortarr.push(leftarr.shift())
-        }else{
+        }else{  
             sortarr.push(rightarr.shift())
         }
     }

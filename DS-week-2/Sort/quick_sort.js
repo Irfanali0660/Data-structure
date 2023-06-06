@@ -1,4 +1,5 @@
 function quicksort(array) {
+  console.log(array);
     if(array.length<2){
         return array
     }
@@ -12,7 +13,7 @@ function quicksort(array) {
       }else{
         right.push(array[i])
       }
-    }
+    } 
     return [...quicksort(left),pivot,...quicksort(right)]
 }
 
