@@ -20,6 +20,7 @@ class Hashtable{
         }else{
             const samekeyItem=bucket.find((item)=>item[0]===key)
             if(samekeyItem){
+                console.log(samekeyItem[1],'lll');
                 samekeyItem[1]=value
             }else{
                 bucket.push([key,value])
@@ -30,8 +31,9 @@ class Hashtable{
         const index=this.hash(key)
         // return this.table[index]
         const bucket=this.table[index]
+        console.log(bucket);
         if(bucket){
-          const  samekeyItem=bucket.find((item)=>item[0]===key)
+          const  samekeyItem=bucket.find((item)=> item[0]===key)
             if(samekeyItem){
                 return samekeyItem[1]
             }
@@ -40,18 +42,17 @@ class Hashtable{
     }
 
     remove(key){
-        const index=this.hash(key)
+        const index=this.hash(key) 
         // this.table[index]=undefined
         const bucket=this.table[index]
         if (bucket) {
-            samekeyItem=bucket.find((item)=>item[0]===key)
+           let samekeyItem=bucket.find((item)=>item[0]===key)
             if(samekeyItem){
                 bucket.splice(bucket.indexOf(samekeyItem),1)
             }
         }
     }
     display(){
-       
         for (let i = 0; i < this.table.length; i++) {
            if(this.table[i]){
             console.log(i,this.table[i]);
@@ -65,7 +66,9 @@ const table=new Hashtable(50)
 table.set('name','ronaldo')
 table.set('naem','messi')
 table.set('anem','messi')
+
 table.set('age',37)
 table.display()
-
 console.log(table.get('name'));
+table.remove('age')
+table.display()

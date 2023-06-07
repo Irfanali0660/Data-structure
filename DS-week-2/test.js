@@ -93,4 +93,4 @@ function merge(left,right) {
     return [...sortarray,...left,...right]
 }
 
-console.log(mergesort([3,2,-6,-8,10,4]));
+// console.log(mergesort([3,2,-6,-8,10,4]));

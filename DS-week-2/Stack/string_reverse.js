@@ -6,6 +6,7 @@ class stackstring{
         for (let i = 0; i < str.length; i++) {
             this.stack.push(str[i])
         }
+        console.log(this.stack);
     }
 
     reverse(){
