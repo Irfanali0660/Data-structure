@@ -29,6 +29,6 @@ function selection(arr) {
     return arr;
 }
 
-const array = [2,3,1,4,-9,5]
+const array = [2,3,1,4,-9,5]        
 const select = selection(array)
 console.log(select);

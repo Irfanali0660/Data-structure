@@ -30,8 +30,7 @@ class Hashtable{
     get(key){
         const index=this.hash(key)
         // return this.table[index]
-        const bucket=this.table[index]
-        console.log(bucket);
+        const bucket=this.table[index]  
         if(bucket){
           const  samekeyItem=bucket.find((item)=> item[0]===key)
             if(samekeyItem){

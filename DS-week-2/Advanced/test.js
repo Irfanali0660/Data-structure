@@ -147,8 +147,6 @@ class quickSortLinkedList{
          var temp=cur.value
          cur.value=last.value
          last.value=temp
-
-
          return prev_pivot
     }
 
