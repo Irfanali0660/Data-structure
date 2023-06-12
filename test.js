@@ -26,4 +26,4 @@
 
 // console.log(swap('abc','cba'));
 
-process.stdout.write("haii");
+process.stdout.write("haii"); 
