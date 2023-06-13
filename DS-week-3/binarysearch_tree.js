@@ -38,7 +38,7 @@ class BinarySearchTree{
                 this.insertNode(root.right,newNode)
             }
         }
-    } 
+    }
     search(root,value){
         if(!root){
             return false    
@@ -78,6 +78,7 @@ class BinarySearchTree{
     leaveOrder(){
         const queue=[]
         queue.push(this.root)
+        console.log(queue);
         while (queue.length) {
             let curr=queue.shift()
             console.log(curr.value);
