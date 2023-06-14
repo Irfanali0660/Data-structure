@@ -39,6 +39,7 @@ class BinarySearchTree{
             }
         }
     }
+    
     search(root,value){
         if(!root){
             return false    
@@ -68,6 +69,7 @@ class BinarySearchTree{
             console.log(root.value);
         }
     }
+
     postOrder(root){
         if(root){
             this.inOrder(root.left)
@@ -75,10 +77,10 @@ class BinarySearchTree{
             console.log(root.value);
         }
     }
+
     leaveOrder(){
         const queue=[]
         queue.push(this.root)
-        console.log(queue);
         while (queue.length) {
             let curr=queue.shift()
             console.log(curr.value);
@@ -90,6 +92,7 @@ class BinarySearchTree{
             }
         }
     }
+
     minValue(root){
         if(root){
             if (!root.left) {
@@ -122,7 +125,7 @@ class BinarySearchTree{
             root.left=this.deleteNode(root.left,value)
         }else if(value>root.value){
             root.right=this.deleteNode(root.right,value)
-        }else{
+        }else{  
             if(!root.left && !root.right){
                 return null
             }
@@ -159,5 +162,5 @@ bst.leaveOrder()
 console.log("ha");
 // console.log(bst.minValue(bst.root));
 // console.log(bst.maxValue(bst.root));c
-bst.delete(10)
+bst.delete(5)
 bst.leaveOrder()

@@ -93,6 +93,71 @@ class Tree{
             }
         }
     }
+
+    delete(value){
+        this.root=this.deleteNode(this.root,value)
+    }
+
+    deleteNode(root,value){
+        if(root===null){
+            return root
+        }else{
+            if(value<root.value){
+                root.left=this.deleteNode(root.left,value)
+            }else if(value>root.value){
+                root.right=this.deleteNode(root.right,value)
+            }else{
+                if(!root.left && !root.right){
+                    return null
+                }
+                if(!root.left){
+                    return root.right
+                }else if(!root.right){
+                    return root.left
+                }
+                 root.value=this.min(root.right)
+                 root.right=this.deleteNode(root.right,root.value)       
+            }
+            return root
+        }
+    }
+
+    search(root,value){
+        if(!root){
+            return false
+        }else{
+            if(root.value==value){
+                return true
+            }else if(root.value>value){
+                return this.search(root.left,value)
+            }else if(root.value<value){
+                return this.search(root.right,value)
+            }
+            return false
+        }
+    }
+   
+
+    delete(value){
+        this.root=this.deleteNode(this.root,value)
+    }
+
+    deleteNode(root,value){
+        if(root==null){
+            return root
+        }else if(root.value>value){
+            return this.deleteNode(root.left,value)
+        }else if(root.value<value){
+            return this.deleteNode(root.right,value)
+        }else{
+            if(!root.left && !root.right){
+                return null
+            }
+            if(!root.left){
+                return root.right
+            }
+        }
+    }
 }
 
 
@@ -105,10 +170,16 @@ tree.insert(7)
 
 // tree.preorder(tree.root)
 // tree.inorder(tree.root)
-// tree.postorder(tree.root)
-// tree.BFS(tree.root)
+tree.postorder(tree.root)
+tree.BFS(tree.root)
 
 // console.log(tree.min(tree.root));
-console.log(tree.max(tree.root));
+// console.log(tree.max(tree.root));
+
+console.log("haa");
+tree.delete(5)
+// tree.BFS(tree.root)
+console.log(tree.search(tree.root,47)
+);
 
 

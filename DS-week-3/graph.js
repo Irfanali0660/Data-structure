@@ -42,8 +42,6 @@ class Graph{
         )
     }
 
-
-
     display(){
         for (const vertex in this.adjecencyList) {
             console.log(vertex+' -> '+[...this.adjecencyList[vertex]]);
