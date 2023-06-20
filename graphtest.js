@@ -258,6 +258,59 @@ class Graph{
             }
         }
     }
+
+    bfs(startVertex){
+        const queue=[]
+        const visited=new Set()
+        queue.push(startVertex)
+        visited.add(startVertex)
+        while (queue.length>0) {
+            const vertex=queue.shift()
+            console.log(vertex);
+            const edges=this.map.get(vertex)
+            for (const edge of edges) {
+               if(!visited.has(edge)){
+                queue.push(edge)
+                visited.add(edge)
+               }
+            }
+        }
+    }
+
+    hasEdge(vertex,edge){
+        if(this.map.has(vertex)){
+                const edges=this.map.get(vertex)
+                return edges.includes(edge)
+        }
+        return false
+    }
+
+    removeVertex(vertex){
+        if(this.map.has(vertex)){
+            this.map.delete(vertex)
+          for (const [key,value] of this.map.entries()) {
+                const index=value.indexOf(vertex)
+                if(index!=-1){
+                    value.splice(index,1)
+                }
+          }
+          console.log(`Vertex '${vertex}' removed.`);
+        }
+    }
+
+    removeEdge(vertex,edge){
+        if(this.map.has(vertex)){
+            const edges=this.map.get(vertex)
+            const index=edges.indexOf(edge)
+            console.log(index);
+            if(index!==-1){
+                edges.splice(index,1)
+                console.log(`Edge between '${vertex}' and '${edge}' removed.`);
+            }else{
+                console.log(`No edge found between '${vertex}' and '${edge}'.`);
+            }
+        }
+    }
 }
  
 
@@ -273,5 +326,16 @@ graph.insert("D", "E", true);
 
 graph.display()
 
-graph.dfs("A")
+// graph.dfs("A")
+// graph.bfs("A")
+
+// console.log(graph.hasEdge("A","E"))
 // console.log(graph.map);
+
+// graph.removeVertex("C")
+
+console.log("BREAK");
+graph.removeEdge("A","D")
+// console.log(graph.map)
+
+graph.display()

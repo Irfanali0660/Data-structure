@@ -1,76 +1,102 @@
 class MinHeap {
-    constructor(array) {
-      this.heap = array;
-      this.buildHeap();
+  constructor() {
+    this.heap = [];
+  }
+
+  buildHeap(array) {
+    this.heap = [...array];
+    for (let i = Math.floor((this.heap.length - 1) / 2); i >= 0; i--) {
+      this.shiftDown(i);
     }
- 
-        buildHeap() {
-      for (let i = this.parent(this.heap.length - 1); i >= 0; i--) {
-        this.shiftDown(i);
-      }
-      return this.heap
+  }
+
+  shiftDown(currentIndex) {
+    let leftIndex = currentIndex * 2 + 1;
+    let rightIndex = currentIndex * 2 + 2;
+    let smallestIndex = currentIndex;
+
+    if (
+      leftIndex < this.heap.length &&
+      this.heap[leftIndex] < this.heap[smallestIndex]
+    ) {
+      smallestIndex = leftIndex;
     }
- 
-    shiftDown(currentIdx) {
-      const endIdx = this.heap.length - 1;
-      let leftIdx = this.leftChild(currentIdx);
-      while (leftIdx <= endIdx) {
-        const rightIdx = this.rightChild(currentIdx);
-        let idxToShift;
-        if (rightIdx <= endIdx && this.heap[rightIdx] < this.heap[leftIdx]){
-          idxToShift = rightIdx;
-        }
-        else {
-          idxToShift = leftIdx;
-        }
-        if (this.heap[currentIdx] > this.heap[idxToShift]) {
-          [this.heap[currentIdx], this.heap[idxToShift]] = [this.heap[idxToShift],this.heap[currentIdx]];
-          currentIdx = idxToShift;
-          leftIdx = this.leftChild(currentIdx);
-        } else {
-          break;
-        }
-      }
+
+    if (
+      rightIndex < this.heap.length &&
+      this.heap[rightIndex] < this.heap[smallestIndex]
+    ) {
+      smallestIndex = rightIndex;
     }
- 
-    shiftUp(currentIdx) {
-      let parentIdx = this.parent(currentIdx);
-      while (
-        currentIdx > 0 && this.heap[parentIdx] > this.heap[currentIdx]) {
-        [this.heap[currentIdx], this.heap[parentIdx]] = [ this.heap[parentIdx],this.heap[currentIdx]];
-        currentIdx = parentIdx;
-        parentIdx = this.parent(currentIdx);
-      }
+
+    if (smallestIndex !== currentIndex) {
+      console.log(this.heap, "HEAPPPPPPP");
+      this.swap(currentIndex, smallestIndex);
+      this.shiftDown(smallestIndex);
     }
-    peek() {
-      return this.heap[0];
+  }
+
+  shiftUp(currentIndex) {
+    let parentIndex = Math.floor((currentIndex - 1) / 2);
+
+    while (
+      currentIndex > 0 &&
+      this.heap[currentIndex] < this.heap[parentIndex]
+    ) {
+      this.swap(currentIndex, parentIndex);
+      currentIndex = parentIndex;
+      parentIndex = Math.floor((currentIndex - 1) / 2);
     }
-    remove() {
-      [this.heap[0], this.heap[this.heap.length - 1]] = [ this.heap[this.heap.length - 1],this.heap[0]];
-      const removedValue = this.heap.pop();
-      this.shiftDown(0);
-      return removedValue;
+  }
+
+  peek() {
+    if (this.heap.length === 0) {
+      return null;
     }
-    insert(value) {
-      this.heap.push(value);
-      this.shiftUp(this.heap.length - 1);
+    return this.heap[0];
+  }
+
+  remove() {
+    if (this.heap.length === 0) {
+      return null;
     }
-    parent(i) {
-      return Math.floor((i - 1) / 2)
-    }
- 
-    leftChild(i) {
-      return 2 * i + 1;
-    }
-    rightChild(i) {
-      return 2 * i + 2;
-    }
- 
-    display() {
-      console.log(this.heap);
-    }
+    this.swap(0, this.heap.length - 1);
+    const removedElement = this.heap.pop();
+    this.shiftDown(0);
+    return removedElement;
+  }
+
+  insert(value) {
+    this.heap.push(value);
+    this.shiftUp(this.heap.length - 1);
+  }
+
+  size() {
+    return this.heap.length;
+  }
+
+  isEmpty() {
+    return this.heap.length === 0;
+  }
+
+  swap(index1, index2) {
+    [this.heap[index1], this.heap[index2]] = [
+      this.heap[index2],
+      this.heap[index1],
+    ];
+  }
 }
-let arr = [3 ,11 ,62 ,5 ,2 ,4]
-const li = new MinHeap(arr)
-// console.log(li.buildHeap());
-li.display()
+
+// Example usage:
+
+const array = [3, 11, 62, 5, 2, 4];
+const minHeap = new MinHeap();
+minHeap.buildHeap(array);
+
+console.log(minHeap.heap); // Output: [1, 2, 3, 5, 4, 6, 8]
+
+// minHeap.insert(0);
+// console.log(minHeap.heap); // Output: [0, 1, 3, 2, 4, 6, 8, 5]
+
+// minHeap.remove();
+// console.log(minHeap.heap); // Output: [1, 2, 3, 5, 4, 6, 8]

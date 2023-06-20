@@ -147,7 +147,7 @@ graph.display();
 
 // // Perform DFS traversal starting from vertex 'A'
 // console.log("DFS traversal:");
-graph.dfs("A");
+// graph.dfs("A");
 
 // console.log(graph.hasEdge('A','E'));
 
