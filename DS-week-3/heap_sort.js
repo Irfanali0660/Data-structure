@@ -54,7 +54,7 @@ function printArray(arr)
         values+=`${arr[i]} ` 
     return values
 }
-var arr = [12, 11, 13, 5, 6, 7];
+var arr = [12, 11, 13, 5, 6, 7,22];
 var N = arr.length;
 
 sort(arr);

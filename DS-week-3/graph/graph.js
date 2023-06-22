@@ -46,7 +46,7 @@ class Graph {
             // Push unvisited adjacent vertices to the stack
             if (!visited.has(edge)) {
               stack.push(edge);
-              visited.add(edge);
+              visited.add(edge);  
             }
           }
         }

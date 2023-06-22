@@ -42,4 +42,4 @@ class TrieNode {
     }
   }
   const trie = new Trie("mannan")
-  console.log(trie.contains("nan"))
+  console.log(trie.contains("man"))

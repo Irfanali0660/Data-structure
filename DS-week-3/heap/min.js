@@ -36,7 +36,7 @@ class MinHeap {
     }
   }
 
-  shiftUp(currentIndex) {
+  shiftup(currentIndex) {
     let parentIndex = Math.floor((currentIndex - 1) / 2);
 
     while (
@@ -95,8 +95,8 @@ minHeap.buildHeap(array);
 
 console.log(minHeap.heap); // Output: [1, 2, 3, 5, 4, 6, 8]
 
-// minHeap.insert(0);
-// console.log(minHeap.heap); // Output: [0, 1, 3, 2, 4, 6, 8, 5]
+minHeap.insert(0);
+console.log(minHeap.heap); // Output: [0, 1, 3, 2, 4, 6, 8, 5]
 
 // minHeap.remove();
 // console.log(minHeap.heap); // Output: [1, 2, 3, 5, 4, 6, 8]

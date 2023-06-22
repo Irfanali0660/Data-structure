@@ -139,6 +139,53 @@ class BinarySearchTree{
         }
         return root
     }
+
+    closestValue(root,target){
+        let closestValue=root.value
+        let minDiff=Math.abs(target-closestValue)
+
+        let currentNode=root
+
+        while (currentNode!==null) {
+            let currentDiff=Math.abs(target-currentNode.value)
+
+            if(currentDiff<minDiff){
+                minDiff=currentDiff
+                closestValue=currentNode.value
+            }
+
+            if(currentNode.value>target){
+                currentNode=currentNode.left
+            }else if(currentNode.value<target){
+                currentNode=currentNode.right
+            }else{
+                return currentNode.value
+            }
+        }
+        return closestValue
+    }
+
+    isBST(root) {
+        return this.isBSTHelper(root, -Infinity, Infinity);
+      }
+      
+    isBSTHelper(node, min, max) {
+        if (node === null) {
+          // Empty node is considered as a valid BST
+          return true;
+        }
+      
+        if (node.value <= min || node.value >= max) {
+          // Node value violates the BST property
+          return false;
+        }
+      
+        // Recursively validate the left and right subtrees
+        return (
+          this.isBSTHelper(node.left, min, node.value) &&
+          this.isBSTHelper(node.right, node.value, max)
+        );
+    }
 }
 
 const bst=new BinarySearchTree()
@@ -150,7 +197,6 @@ bst.insert(15)
 bst.insert(3)
 bst.insert(7)
 
-
 // console.log(bst.search(bst.root,10));
 // console.log(bst.search(bst.root,5));
 // console.log(bst.search(bst.root,15));
@@ -158,9 +204,14 @@ bst.insert(7)
 // bst.preOrder(bst.root)
 // bst.inOrder(bst.root)
 // bst.postOrder(bst.root)
+
 bst.leaveOrder()
 console.log("ha");
 // console.log(bst.minValue(bst.root));
 // console.log(bst.maxValue(bst.root));c
-bst.delete(5)
-bst.leaveOrder()
+// bst.delete(5)
+// bst.leaveOrder()
+
+// console.log(bst.closestValue(bst.root,12));
+
+console.log(bst.isBST(bst.root));

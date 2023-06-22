@@ -184,3 +184,167 @@
 
 
 
+
+// class MaxHeap{
+//     constructor(){
+//         this.heap=[]
+//     }
+
+//     buildHeap(array){
+//         this.heap=array
+//         for (let i = (Math.floor((array.length-1)/2)); i >=0; i--) {
+//             this.shiftDown(i)
+//         }
+//     }
+
+
+//     shiftDown(currentIdx){
+//         let length=this.heap.length
+//         let maxIdx=currentIdx
+//         let leftIdx=2*currentIdx+1
+//         let rightIdx=2*currentIdx+2
+
+//         if(leftIdx<length && this.heap[leftIdx]>this.heap[maxIdx]){
+//             maxIdx=leftIdx
+//         }
+        
+//         if(rightIdx<length && this.heap[rightIdx]>this.heap[maxIdx]){
+//             maxIdx=rightIdx
+//         }
+
+//         if(maxIdx!==currentIdx){
+//             this.swap(currentIdx,maxIdx)
+//         }
+//     }
+
+//     swap(i,j){
+//         [this.heap[i],this.heap[j]]=[this.heap[j],this.heap[i]]
+//     }
+
+//     heapSort(){
+//         const sortedArray=[]
+//         while (this.heap.length>0) {
+//             sortedArray.unshift(this.extractMax())
+//         }
+//         return sortedArray
+//     }
+
+//     extractMax(){
+//         if(this.heap.length==0){
+//             return null
+//         }
+
+//         let max=this.heap[0]
+//         let lastIdx=this.heap.length-1
+//         this.swap(0,lastIdx)
+//         this.heap.pop()
+//         this.shiftDown(0)
+//         return max
+//     }
+// }
+
+// const maxHeap=new MaxHeap()
+
+// maxHeap.buildHeap([2,1,4,3,5,8])
+// console.log(maxHeap.heapSort());
+
+
+class Maxheap{
+    constructor(){
+        this.heap=[]
+    }
+
+    buildheap(array){
+        this.heap=array
+
+        for (let i = Math.floor((array.length-1)/2); i >=0; i--) {
+            this.shiftDown(i)
+        }
+    }
+
+    shiftDown(currentIdx){
+        let length=this.heap.length
+        let maxIdx=currentIdx
+        let leftIdx=2*currentIdx+1
+        let rightIdx=2*currentIdx+2
+        if(leftIdx<length && this.heap[leftIdx]<this.heap[maxIdx]){
+            maxIdx=leftIdx
+        }
+        if(rightIdx<length && this.heap[rightIdx]<this.heap[maxIdx]){
+            maxIdx=rightIdx
+        }
+        
+        if(maxIdx!==currentIdx){
+            this.swap(currentIdx,maxIdx)
+            
+        }
+    }
+    
+    swap(i,j){
+        [this.heap[i],this.heap[j]]=[this.heap[j],this.heap[i]]
+    }
+
+    heapSort(){
+        const sortedArray=[]
+        while (this.heap.length>0) {
+            sortedArray.unshift(this.extractMax())
+        }
+        return sortedArray
+    }
+
+    extractMax(){
+        if(this.heap.length==0){
+            return null
+        }
+        const max=this.heap[0]
+        const lastIdx=this.heap.length-1
+        this.swap(0,lastIdx)
+        this.heap.pop()
+        this.shiftDown(0)
+        return max
+    }
+
+    insert(value){
+        this.heap.push(value)
+        this.shiftUp(this.heap.length-1)
+    }
+
+    shiftUp(currentIdx){
+        if (currentIdx === 0) {
+            return;
+          }
+      
+          const parentIdx = Math.floor((currentIdx - 1) / 2);
+          if (this.heap[currentIdx] < this.heap[parentIdx]) {
+            this.swap(currentIdx, parentIdx);
+            this.shiftUp(parentIdx);
+          }
+    }
+
+    remove(value){
+        const index=this.heap.indexOf(value)
+        if(index===-1){
+            return false
+        }
+        this.swap(index,this.heap.length-1)
+        this.heap.pop()
+        const parentIdx=Math.floor((index-1)/2)
+        if(index>0 && this.heap[index]<this.heap[parentIdx]){
+            this.shiftUp(index)
+        }else{
+            this.shiftDown(index)
+        }
+        return true
+    }
+}
+
+const array = [3, 11, 62, 5,22,14];
+console.log(array);
+const heap = new Maxheap();
+heap.buildheap(array);
+
+// const sortedArray = heap.heapSort();
+// console.log(sortedArray); // Output: [2, 3, 3, 5, 6, 8, 9, 24]
+heap.insert(33)
+console.log(heap.heapSort()); 
+
