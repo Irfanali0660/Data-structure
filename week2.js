@@ -49,54 +49,54 @@
 // console.log(insersionsort([2,1,4,3,5,-6]));
 
 
-// class trieNode{
-//     constructor(){
-//         this.children=new Map()
-//         this.endNode=false
-//     }
-// }
+class trieNode{
+    constructor(){
+        this.children=new Map()
+        this.endNode=false
+    }
+}
 
-// class Trie{
-//     constructor(){
-//         this.root=new trieNode()
-//     }
+class Trie{
+    constructor(){
+        this.root=new trieNode() 
+    }
 
-//     insert(word){
-//         let currentNode=this.root
+    insert(word){
+        let currentNode=this.root
 
-//         for (let i = 0; i < word.length; i++) {
-//             let char=word[i]
+        for (let i = 0; i < word.length; i++) {
+            let char=word[i]
 
-//             if(!currentNode.children.has(char)){
-//                 currentNode.children.set(char,new trieNode())
-//             }
-//             currentNode=currentNode.children.get(char)
-//         }
-//         currentNode.endNode=true
-//         currentNode.children.set("*",new trieNode())
-//     }
+            if(!currentNode.children.has(char)){
+                currentNode.children.set(char,new trieNode())
+            }
+            currentNode=currentNode.children.get(char)
+        }
+        currentNode.endNode=true
+        currentNode.children.set("*",new trieNode())
+    }
 
-//     startWith(prefix){
-//         let currentNode=this.root
+    startWith(prefix){
+        let currentNode=this.root
 
-//         for (let i = 0; i < prefix.length; i++) {
-//             let char=prefix[i]
+        for (let i = 0; i < prefix.length; i++) {
+            let char=prefix[i]
 
-//             if(!currentNode.children.has(char)){
-//                 return false
-//             }
-//             currentNode=currentNode.children.get(char)
-//         }
-//        return true
-//     }
-// }
+            if(!currentNode.children.has(char)){
+                return false
+            }
+            currentNode=currentNode.children.get(char)
+        }
+       return true
+    }
+}
 
-// const trie = new Trie();
+const trie = new Trie();
   
-// trie.insert("apple");
-// trie.insert("banana");
-// trie.insert("orange");
-// trie.insert("op");
+trie.insert("apple");
+trie.insert("banana");
+trie.insert("orange");
+trie.insert("op");
 
 // console.log(trie.root.children);
 
@@ -134,7 +134,7 @@ class Heap{
        }
     }
 
-    heapSort(){
+        heapSort(){
         const sortedArray=[]
 
         while (this.Heap.length>0) {
@@ -204,7 +204,7 @@ heap.insert(3)
 heap.insert(2)
 heap.insert(4)
 
-// console.log(heap.remove(2));
+// console.log(heap.rem ove(2));
 
 // console.log(heap.heapSort())
 
@@ -496,11 +496,11 @@ graph.insert("A","D",true)
 graph.insert("B","F",true)
 graph.insert("C","E",true)
 
-graph.display()
+// graph.display()
 
 // graph.dfs("A")
 
 graph.Bfs("A")
 // graph.removeVertex("A")
-graph.removeEdge("A","B")
-graph.display()
+// graph.removeEdge("A","B")
+// graph.display()
